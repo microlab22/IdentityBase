@@ -33,7 +33,8 @@
       "ConnectionString": "User ID=postgres;Password=postgres;Host=localhost;Port=5432;Database=identitybase;Pooling=true;"
     },
     "SqlServer": {
-      "ConnectionString": "Server=.\\SQLEXPRESS;Database=IdentityBase;User ID=dev;Password=dev"
+      // "ConnectionString": "Server=.\\SQLEXPRESS;Database=IdentityBase;User ID=dev;Password=dev"
+      "ConnectionString": "Server=.\\SQLEXPRESS;Database=PIQIdentity;Integrated Security=True;MultipleActiveResultSets=True;"
     }
   },
   "Events": {
@@ -49,7 +50,7 @@
     }
   },
   "App": {
-    "EnableWebApi": false,
+    "EnableWebApi": true,
     "PasswordHashingIterationCount": 0,
     "AccountLockoutFailedLoginAttempts": 5,
     "AccountLockoutDuration": 600,
@@ -58,11 +59,12 @@
     "EnableAccountDeletion": false,
     "EnableLoginHints": false,
     "LoginAfterAccountCreation": false,
-    "LoginAfterAccountConfirmation": true,
-    "LoginAfterAccountRecovery": true,
-    "CancelAfterAccountRecovery": false,
+    "LoginAfterAccountConfirmation": false,
+    "CancelAfterAccountConfirmation": true,
+    "LoginAfterAccountRecovery": false,
+    "CancelAfterAccountRecovery": true,
     "LoginAfterAccountInvitation": true,
-    "VerificationKeyLifetime": 86400,
+    "VerificationKeyLifetime": 525600,
     "EnableAccountRegistration": true,
     "EnableAccountRecovery": true,
     "AutomaticAccountMerge": true,
@@ -79,17 +81,17 @@
   "WebApi": {
     "AutorityUrl": "http://localhost:5000",
     "ApiSecret": "secret",
-    "EnableSwagger":  true
+    "EnableSwagger": true
   },
   "Email": {
-    
+
   },
   "Sms": {
 
   },
   "Modules": [
-    { "Type": "IdentityBase.EntityFramework.InMemoryModule, IdentityBase.EntityFramework" },
-    // { "Type": "IdentityBase.EntityFramework.SqlServer.SqlServerModule, IdentityBase.EntityFramework.SqlServer" },
+    // { "Type": "IdentityBase.EntityFramework.InMemoryModule, IdentityBase.EntityFramework" },
+    { "Type": "IdentityBase.EntityFramework.SqlServer.SqlServerModule, IdentityBase.EntityFramework.SqlServer" },
     // { "type": "IdentityBase.EntityFramework.Npgsql.NpgsqlModule, IdentityBase.EntityFramework.Npgsql" },
 
     { "type": "IdentityBase.EntityFramework.ConfigBasedStoreInitializerModule, IdentityBase.EntityFramework" },
